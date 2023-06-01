@@ -14,8 +14,44 @@ function App() {
   const [output, setOutput] = useState('');
   const [calculatorData, setCalculatorData] = useState('');
 
+
+  //functions in the switch cases
+
+  const handleSubmit = () => {
+    console.log('handlesubmit')
+  };
+
+  const handleClear = () => {};
+
+  const handleNumbers = () => {};
+
+  const dotOperator = () => {};
+
+  const handleOperators = () => {};
+
   const handleInput = (value) => {
-    console.log(value);
+    const number = numbers.find((num) => num === value);
+    const operator = operators.find((op) => op === value);
+
+    switch (value) {
+      case '=':
+        handleSubmit();
+        break;
+      case 'AC':
+        handleClear();
+        break;
+      case number:
+        handleNumbers(value);
+        break;
+      case '.':
+        dotOperator(value);
+        break;
+      case operator:
+        handleOperators();
+        break;
+      default:
+        break;
+    }
   };
 
   const handleOutput = () => {
